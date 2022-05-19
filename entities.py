@@ -1,3 +1,5 @@
+from html import entities
+from turtle import position
 from ursina import *
 from ursina import collider
 from ursina import texture
@@ -12,8 +14,6 @@ Sky = Entity(
 )
 
 ## Dynamic Entities
-
-
 # Platforms
 PlatformGround = Entity(
 	model = "quad",
@@ -37,6 +37,23 @@ PlatformCeiling = Entity(
 	scale = (3, 1),
 	collider = "box",
 	color = color.cyan
+)
+
+# Interactables
+InteractCoin = Entity(
+	model = "circle",
+	color = color.yellow,
+	position = (2, 1),
+	collider = "sphere",
+	scale = (1, 1)
+)
+
+# UI
+Text.default_resolution = 1080 * Text.size
+uiPoints = Text(
+	origin = (-0.5, -0.5),
+	color = color.red,
+	parent = camera.ui
 )
     
 
